@@ -1,10 +1,9 @@
 'use server';
 
-import { custom, z } from 'zod';
+import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { OperationCanceledException } from 'typescript';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 
@@ -62,7 +61,7 @@ export async function createInvoice(prevState: State ,formData: FormData){
     } catch (error) {
       return {
         message: 'Database Error: Failed to Create Invoice.',
-      
+        error: error
       };
     }
 
@@ -96,7 +95,7 @@ export async function updateInvoice(id: string , prevState: State, formData: For
           WHERE id = ${id}
         `;
     } catch (error) {
-      return { message: 'Database Error: Failed to Update Invoice.' };
+      return { message: 'Database Error: Failed to Update Invoice.', error: error};
     }
    
     revalidatePath('/dashboard/invoices');
@@ -109,7 +108,7 @@ export async function updateInvoice(id: string , prevState: State, formData: For
       revalidatePath('/dashboard/invoices');
       return { message: 'Deleted Invoice.' };
     } catch (error) {
-      return { message: 'Database Error: Failed to Delete Invoice.' };
+      return { message: 'Database Error: Failed to Delete Invoice.', error: error};
     }
   }
 
