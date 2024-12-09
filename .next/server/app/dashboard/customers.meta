@@ -1,0 +1,6 @@
+{
+  "status": 200,
+  "headers": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/dashboard/layout,_N_T_/dashboard/customers/layout,_N_T_/dashboard/customers/page,_N_T_/dashboard/customers"
+  }
+}

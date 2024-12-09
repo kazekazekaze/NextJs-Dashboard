@@ -1,0 +1,6 @@
+{
+  "status": 200,
+  "headers": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/dashboard/layout,_N_T_/dashboard/invoices/layout,_N_T_/dashboard/invoices/create/layout,_N_T_/dashboard/invoices/create/page,_N_T_/dashboard/invoices/create"
+  }
+}
